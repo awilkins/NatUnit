@@ -122,6 +122,14 @@ The following User Exits are used by NatUnit and have to be present.
 *   `USR4208N`: Read or write a Natural resource
 *   `USR6006N`: Get path to system file (*optional*, only on Linux)
 
+### Locale Considerations
+
+Because the code is from Germany and Natural uses locale-specific syntax in places, it may not catalog in your configured locale. You can fix this quickly if you use period/dot as the decimal separator :
+
+```sh
+find -name '*.NS?' | xargs sed -i 's/\([0-9]\),\([0-9]\)/\1.\2/g'
+```
+
 ### Installation
 
 The repository contains a working project for NaturalONE that you can directly **import into your workspace**.
