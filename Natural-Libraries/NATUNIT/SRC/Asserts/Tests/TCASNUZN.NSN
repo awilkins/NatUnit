@@ -46,14 +46,14 @@ END-IF
 /***********************************************************************
 IF NUTESTP.TEST EQ 'small number should not be zero'
 /***********************************************************************
-  PERFORM WRAP-ASSERT-NUM-NOT-ZERO 0,000001 #ASSERTION-RESULT
+  PERFORM WRAP-ASSERT-NUM-NOT-ZERO 0.000001 #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-TRUE NUASSP #ASSERTION-RESULT
 END-IF
 
 /***********************************************************************
 IF NUTESTP.TEST EQ 'larger number should not be zero'
 /***********************************************************************
-  PERFORM WRAP-ASSERT-NUM-NOT-ZERO 1,0000 #ASSERTION-RESULT
+  PERFORM WRAP-ASSERT-NUM-NOT-ZERO 1.0000 #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-TRUE NUASSP #ASSERTION-RESULT
 END-IF
 

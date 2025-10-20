@@ -46,7 +46,7 @@ INPUT          (     IP=OFF                                           /*
       (AD=ODL ZP=ON )
  058T 'Asserts..:'
  069T NUCRSTAP.NUM-ASSERTS /*.01U007 I004 .
-      (AD=ODL NL=07,0 )
+      (AD=ODL NL=07.0 )
 /
  001T 'Failure....:'
  014T NUCRSTAP.NUM-TESTCASES-FAILURE /*.01U010 I004 .

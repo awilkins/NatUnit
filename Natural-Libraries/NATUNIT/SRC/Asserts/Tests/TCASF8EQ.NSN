@@ -39,7 +39,7 @@ INCLUDE NUTCTEMP
 /***********************************************************************
 DEFINE SUBROUTINE SETUP
 /***********************************************************************
-#ACCURACY := 0,001
+#ACCURACY := 0.001
 END-SUBROUTINE
 /***********************************************************************
 
@@ -48,7 +48,7 @@ DEFINE SUBROUTINE TEST
 /***********************************************************************
 IF NUTESTP.TEST EQ 'a number should be equal to itself'
 /***********************************************************************
-  #NUM1 := 1234,1234
+  #NUM1 := 1234.1234
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM1 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-TRUE NUASSP #ASSERTION-RESULT
 END-IF
@@ -56,8 +56,8 @@ END-IF
 /***********************************************************************
 IF NUTESTP.TEST EQ 'equal numbers should be equal'
 /***********************************************************************
-  #NUM1 := 1234,1234
-  #NUM2 := 1234,1234
+  #NUM1 := 1234.1234
+  #NUM2 := 1234.1234
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM2 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-TRUE NUASSP #ASSERTION-RESULT
 END-IF
@@ -65,8 +65,8 @@ END-IF
 /***********************************************************************
 IF NUTESTP.TEST EQ 'different numbers should not be equal'
 /***********************************************************************
-  #NUM1 := 1234,1234
-  #NUM2 := 4233,1122
+  #NUM1 := 1234.1234
+  #NUM2 := 4233.1122
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM2 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-FALSE NUASSP #ASSERTION-RESULT
 END-IF
@@ -74,9 +74,9 @@ END-IF
 /***********************************************************************
 IF NUTESTP.TEST EQ 'slightly different numbers should not be equal'
 /***********************************************************************
-  #ACCURACY := 0,0000001
-  #NUM1 := 1,123456
-  #NUM2 := 1,123457
+  #ACCURACY := 0.0000001
+  #NUM1 := 1.123456
+  #NUM2 := 1.123457
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM2 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-FALSE NUASSP #ASSERTION-RESULT
 END-IF
@@ -84,7 +84,7 @@ END-IF
 /***********************************************************************
 IF NUTESTP.TEST EQ 'equal numbers with different decimal places should be equal'
 /***********************************************************************
-  #NUM1 := 1234,00
+  #NUM1 := 1234.00
   #NUM2 := 1234
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM2 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-TRUE NUASSP #ASSERTION-RESULT
@@ -93,17 +93,17 @@ END-IF
 /***********************************************************************
 IF NUTESTP.TEST EQ 'different numbers with different decimal places should not be equal'
 /***********************************************************************
-  #NUM1 := 1234,0001
+  #NUM1 := 1234.0001
   #NUM2 := 1234
-  #ACCURACY := 0,00001
+  #ACCURACY := 0.00001
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM2 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-FALSE NUASSP #ASSERTION-RESULT
 
-  #ACCURACY := 0,0001
+  #ACCURACY := 0.0001
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM2 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-TRUE NUASSP #ASSERTION-RESULT
 
-  #ACCURACY := 0,001
+  #ACCURACY := 0.001
   PERFORM WRAP-ASSERT-F8-EQUALS #NUM1 #NUM2 #ACCURACY #ASSERTION-RESULT
   ASSERT-LINE := *LINE; PERFORM ASSERT-TRUE NUASSP #ASSERTION-RESULT
 END-IF
